@@ -1,0 +1,35 @@
+;Time to Live
+$TTL 1h
+
+;Statement of Authority(SOA)
+foo.org.nz. IN SOA ns1.foo.org.nz. watphv1.student.op.ac.nz. (
+   20150819 ; serial number
+   3h       ; slave refresh
+   1h       ; slave retry
+   3d       ; slave expires
+   1h )     ; negative ttl
+
+;Nameserver Records
+foo.org.nz. IN NS ns1.foo.org.nz.
+foo.org.nz. IN NS ns2.foo.org.nz.
+
+;Address Records
+
+ns1.foo.org.nz. IN A 172.16.5.11
+ns2.foo.org.nz. IN A 172.16.5.11
+bsd-server.foo.org.nz. IN A 172.16.5.11
+bsd-relay-server.foo.org.nz. IN A 192.168.2.100
+linux-client.foo.org.nz. IN A 172.16.5.30
+router1.foo.org.nz. IN A 10.25.1.209
+router1.foo.org.nz. IN A 172.16.5.2
+router2.foo.org.nz. IN A 172.16.5.3
+router2.foo.org.nz. IN A 192.168.2.2
+
+;Mail Exchange Records
+
+foo.org.nz. IN MX 10 bsd-server.foo.org.nz.
+foo.org.nz. IN MX 20 bsd-relay-server.foo.org.nz.
+
+;CNAME Records
+
+www.foo.org.nz IN CNAME ns1.foo.org.nz.
